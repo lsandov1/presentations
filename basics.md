@@ -74,3 +74,22 @@ $ echo '#!/bin/bash -' > sample_file
 $ file sample_file 
 sample_file: Bourne-Again shell script text executable
 ~~~~
+
+# Showing hidden files in current folder
+
+~~~~ {.bash}
+ls -d .*
+~~~~
+
+# Using Shell Quoting
+
+~~~~ {.bash}
+$ echo "$5?!"
+-bash: !": event not found
+
+$ echo '$5?!'
+
+$ echo 'your name is ' "$USER"'!'
+your name is  leonardo!
+
+~~~~
