@@ -1,7 +1,10 @@
-SOURCES=basics.md stdout.md stdin.md exec.md scripting.md tools_1.md
-DEST=basics.html stdout.html stdin.html exec.html scripting.html tools_1.html
+SOURCES=menu.md basics.md stdout.md stdin.md exec.md scripting.md tools.md
+DEST=menu.html basics.html stdout.html stdin.html exec.html scripting.html tools.html
 
 all: $(DEST)
+
+menu.html: menu.md
+		pandoc --offline -s -t slidy -o $@ $<
 
 basics.html: basics.md
 		pandoc --offline -s -t slidy -o $@ $<
@@ -18,7 +21,7 @@ exec.html: exec.md
 scripting.html: scripting.md
 		pandoc --offline -s -t slidy -o $@ $<
 
-tools_1.html: tools_1.md
+tools.html: tools.md
 		pandoc --offline -s -t slidy -o $@ $<
 
 clean:
