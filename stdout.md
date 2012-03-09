@@ -97,3 +97,5 @@ $ ls -la | tee sample
 $ gcc bad.c 2>&1 | tee save.it
 ~~~~
 
+
+[Back to Menu](./menu.html#(2))
