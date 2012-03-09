@@ -1,8 +1,4 @@
-% Bash: Standard Input
-% Leonardo Sandoval
-% 2012-03
-
-# Getting input from a file
+# Getting input from a file: <
 
 ~~~~ {.bash}
 $ wc < myfile.c
@@ -23,5 +19,5 @@ EOF
  
 $ ./email leonardo
 leonardo ls@ooyala.com
-~~~~ 
+~~~~
 

@@ -1,7 +1,3 @@
-% Bash: Executing
-% Leonardo Sandoval
-% 2012-03
-
 # Shell Variables
 
 ~~~~ {.bash}
@@ -25,14 +21,6 @@ $ ANOTHERVAR="lkdasdkla dkalskdaldka"
 $ for I in 1 2 3 4 5; do rm file_${I}.txt; done
 ~~~~
 
-# Seeing all variables
-
-~~~~ {.bash}
-$ set 
-
-$ env
-~~~~
-
 # Script parameters
 
 ~~~~ {.bash}
@@ -48,16 +36,6 @@ done
 $ chmod +x script.sh 
 $ ./script.sh file1.sh file2.sh file3.sh
 file1.sh
-~~~~
-
-# Changing a string
-
-~~~~ {.bash}
-# change the extension from .bad to .bash
-for FN in *.bad
-do
-  mv "${FN}" "${FN%bad}bash"
-done
 ~~~~
 
 # Branching

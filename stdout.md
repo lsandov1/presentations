@@ -1,7 +1,3 @@
-% Bash: Standard Output
-% Leonardo Sandoval
-% 2012-03
-
 # Preserve Spacing
 
 ~~~~ {.bash}
@@ -14,6 +10,7 @@ please            wait
 # printf
 
 ~~~~ {.bash}
+$ LINES=52
 $ printf '%s = %d\n' lines $LINES
 lines = 52
 ~~~~
@@ -28,19 +25,22 @@ $ echo a sample text > sample_file.txt
 $ cat first.half second.half > whole.file
 
 $ ls > files.txt
-
 ~~~~
 
-# Output and Error Messages to different files
+# Output and Error Messages
+
+* To different files
 
 ~~~~ {.bash}
 $ myprogram 1>messages.out 2>message.err
 ~~~~
 
-# Output and Error Messages to the same file
+
+* To the same file
 
 ~~~~ {.bash}
-$ both >& outfile
+$ both >& outfile  
+
 $ both > outfile 2>&1
 ~~~~
 
@@ -71,8 +71,8 @@ line 5
 # Throwing output
 
 ~~~~ {.bash}
-$ noisy > /dev/null 2>&1
-$ find / -name myname > /dev/null 2>&1
+$ noisy 2>&1 /dev/null
+$ find / -name myname >& /dev/null
 ~~~~
 
 # Saving output from several commands
@@ -86,9 +86,7 @@ $ (echo 'Location:'; pwd; echo; echo 'Files:'; echo; ls) > sample
 # Output as arguments
 
 ~~~~ {.bash}
-$ find . -name '*.c' | rm     # incorrect: does not work
-
-$ rm $(find . -name '*.class')  # correct
+$ rm $(find . -name '*.class')
 ~~~~
 
 # Looking and saving output
@@ -97,21 +95,5 @@ $ rm $(find . -name '*.class')  # correct
 $ ls -la | tee sample
 
 $ gcc bad.c 2>&1 | tee save.it
-~~~~
-
-# Keeping files save
-
-~~~~ {.bash}
-
-$ set +o noclobber
-
-$ echo hola > sample
-
-$ set -o noclobber
-
-$ echo hola > sample
--bash: sample: cannot overwrite existing file
-
-$ echo hola >| sample
 ~~~~
 

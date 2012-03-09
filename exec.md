@@ -1,8 +1,4 @@
-% Bash: Executing
-% Leonardo Sandoval
-% 2012-03
-
-# $PATH 
+# PATH 
 
 ~~~~ {.bash}
 $ bash
@@ -79,8 +75,8 @@ $ if (( $? == 0 )); then rm * ; fi
 
 $ cd mytmp && rm  *
 
-$ set -e
-$ cd mytmp # will cause the shell to exit when a command fails
+$ set -e # will cause the shell to exit when a command fails
+$ cd mytmp
 ~~~~
 
 # Running jobs unattended: nohup
