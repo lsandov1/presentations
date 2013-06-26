@@ -1,6 +1,6 @@
 # Pro Git
 
-* Most commands taken from [git-scm](http://git-scm.com/book)
+* Examples taken from [git-scm](http://git-scm.com/book)
 
 ![](http://git-scm.com/images/books/pro-git@2x.jpg)
 
@@ -19,7 +19,15 @@
 
 ![](http://git-scm.com/figures/18333fig0103-tn.png "Distributed VCS")
 
+# Install Git
+
+[Download it](http://git-scm.com/)
+
 # Set up Git
+
+~~~~ {.bash}
+$ git --version
+~~~~
 
 ~~~~ {.bash}
 $ git config --global user.name "Your Name Here"
@@ -27,55 +35,46 @@ $ git config --global user.name "Your Name Here"
 ~~~~
 
 ~~~~ {.bash}
-git config --global user.email "your_email@example.com"
+$ git config --global user.email "your_email@example.com"
 # Sets the default email for git to use when you commit
 ~~~~
 
 ~~~~ {.bash}
-git config --global core.editor vim
+$ git config --global core.editor vim
 # Sets the default editor for git to use when you commit
 ~~~~
 
 ~~~~ {.bash}
-git config --global sendemail.smtpserver remotesmtp.freescale.net
+$ git config --global sendemail.smtpserver remotesmtp.freescale.net
 # Sets the default SMTP server for git to use when you send your git patch
 ~~~~
 
+~~~~ {.bash}
+$ cat ~/.gitconfig
+# You can also manually edit this file
+~~~~
 
-# Creating a Repo on GitHub
 
-![](https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/GitHub-Logo.png)
-
+# GitHub
 
 * Create an account on [github](https://github.com/)
-* Create a Repo with the name of your project
-* Generate SSH [Keys](https://help.github.com/articles/generating-ssh-keys)
+* Create a New Repository with the name of your project (*demo*)
 * Set `bash` enviroment variables
 
 ~~~~ {.bash}
-PROJECT_NAME=
-GITHUB_USERNAME=
+$ PN=demo     # Project Name: demo
+$ GHUN=b42214 # GitHub UserName: Your Core ID, or any ID you want to use on GitHub
 ~~~~ 
 
 * Version your project
 
 ~~~~ {.bash}
-$ cd myproject
+$ mkdir $PN && cd $PN
 $ git init
 $ touch README
 $ git add README
-# Add any other files you want
 $ git commit -m 'Initial Project Version'
-~~~~
-
-* Push your commits in GitHub
-
-~~~~ {.bash}
-$ git remote add origin https://github.com/$USERNAME/$PROJECT_NAME.git
-# Creates a remote named "origin" pointing at your GitHub repository
-
-$ git push origin master
-# Sends your commits in the "master" branch to GitHub
+$ git log
 ~~~~
 
 
@@ -85,8 +84,6 @@ $ git push origin master
 
 ~~~~ {.bash}
 $ cat > Makefile
-Makefile
-# SOURCES=helloworld.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=helloworld
 all: $(SOURCES) $(EXECUTABLE)
@@ -118,10 +115,14 @@ $ cat > include/helloworld.h
 ^d
 
 $ git status
-$ git add helloword.c include
+$ git add helloworld.c include
 $ git status
-$ git commit -m 'helloword: First application'
+$ git commit 
+# 
 ~~~~
+
+![](https://wiki.openstack.org/wiki/GitCommitMessages)
+
 
 # Commit history
 
@@ -141,66 +142,85 @@ $ gitk
 * Changing last commit
 
 ~~~~ {.bash}
-$ git add forgotten_file
+$ git add Makefile
 $ git commit --amend
+$ git log -p -1
 ~~~~
 
-* Unstaging a Staged File
+* Unstaging a Staged File (Staged to Modified)
 
 ~~~~ {.bash}
-$ echo "# hello #' > README
+$ echo '# hello #' > README
 $ git add README
 $ git status
 $ git reset HEAD README
 ~~~~
 
-* Unmodifying a Modified File
+* Unmodifying a Modified File (Mofified to Unmodified)
 
 ~~~~ {.bash}
-$ echo "# hello #' > README
 $ git status
 $ git checkout -- README
+$ git status
 ~~~~
+
+# Pushing stuff to your remote repo
+
+~~~~ {.bash}
+$ git remote add origin https://github.com/$GHUN/$PN.git
+# Creates a remote named "origin" pointing at your GitHub repository
+
+$ git remote -v
+
+$ git push origin master
+# Sends your commits in the "master" branch to GitHub
+~~~~
+
 
 # Collaborating with Remotes
 
-* User 1
+* Developer
 
 ~~~~ {.bash}
 # Add some text on the README file and commit your change
 $ git push origin master
 ~~~~
 
-* User 2
+* Mantainer
 
 ~~~~ {.bash}
-$ GITHUB_USERNAME_1=
-$ git remote
+$ PN=demo
+$ GHDEVELOPER= # Set Github ID of Developer
 $ git remote -v
-$ git remote add $GITHUB_USERNAME_1 git://github.com/$GITHUB_USERNAME_1/$PROJECT_NAME.git
+$ git remote add $GHDEVELOPER https://github.com/$GHDEVELOPER/$PN.git
 $ git remote -v
-$ git fetch $GITHUB_USERNAME_1
-$ git merge $GITHUB_USERNAME_1/master
+$ git fetch $GHDEVELOPER
+$ git branch # Check current branch
+$ git merge $GHDEVELOPER/master
+$ # The file(s) changed by User 1 should be present now
+$ git show HEAD # or simply 'git show'
 ~~~~
 
 # Collaborating with patches
 
-* User 1
+* Developer
 
 ~~~~ {.bash}
+$ MANTAINER_EMAIL=maintainer@email.com
 # Change something on helloworld.c and commit your change
-$ git format-patch -s --subject-prefix='PATCH'
-$ git send-email --to user2@email.com <generated patch>
+$ git format-patch -s --subject-prefix='PATCH' -1
+$ git send-email --to $MANTAINER_EMAIL <generated patch>
 ~~~~
 
-* User 2
+* Mantainer
 
 ~~~~ {.bash}
 # Download patch
 $ git apply --stat <generated patch>
 $ git apply --check <generated patch>
-$ git am --signoff < <generated patch>
-$ git log -p -1
+$ git am --signoff < <generated patch> # In case you dont want to create a commit
+                                       # type 'git apply <generate patch>' 
+$ git show
 ~~~~
 
 # Tags
@@ -222,9 +242,11 @@ $ git show v1.0
 * Lightweight Tags
 
 ~~~~ {.bash}
-$ git tag v1.0-lw
+$ echo '{{ Hello }}' >> README
+$ git commit -a -m 'New line on README' # -a indicates to add all modified files!
+$ git tag v1.1-lw
 $ git tag
-$ git show v1.0-lw
+$ git show v1.1-lw
 ~~~~
 
 * Tagging older commits
@@ -238,14 +260,49 @@ $ git show v0.1
 * Sharing tags
 
 ~~~~ {.bash}
-git push origin v1.0
+$ git push origin v1.0
 ~~~~
 
 ~~~~ {.bash}
-git push origin --tags
+$ git push origin --tags
 ~~~~
 
 
 # Tips and tricks
+
+* Autocompletion
+
+~~~~ {.bash}
+$ curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash > ~/git-completion.bash
+$ source ~/git-completion.bash
+$ git che<TAB>
+checkout      cherry        cherry-pick   
+~~~~~
+
+
+* Alias
+
+~~~~ {.bash}
+$ git config --global alias.unstage 'reset HEAD --'
+$ git unstage README # instead of 'git reset HEAD REAME'
+~~~~
+
+~~~~ {.bash}
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+~~~~
+
+~~~~ {.bash}
+$ git config --global alias.last 'log -1 HEAD'
+$ git last
+~~~~
+
+[Back to Menu](./menu.html#(2))
+
+
+
+
 
 
