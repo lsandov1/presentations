@@ -21,7 +21,7 @@
 
 # Install Git
 
-[Download it](http://git-scm.com/)
+[Download](http://git-scm.com/) and install it
 
 # Set up Git
 
@@ -55,18 +55,11 @@ $ cat ~/.gitconfig
 ~~~~
 
 
-# GitHub
-
-* Create an account on [github](https://github.com/)
-* Create a New Repository with the name of your project (*demo*)
-* Set `bash` enviroment variables
+# Version your project
 
 ~~~~ {.bash}
-$ PN=demo     # Project Name: demo
-$ GHUN=b42214 # GitHub UserName: Your Core ID, or any ID you want to use on GitHub
+$ PN=demo # Project Name: demo
 ~~~~ 
-
-* Version your project
 
 ~~~~ {.bash}
 $ mkdir $PN && cd $PN
@@ -166,6 +159,15 @@ $ git status
 
 # Pushing stuff to your remote repo
 
+
+* Create an account on [github](https://github.com/)
+* Create a New Repository with the name of your project ($PN)
+
+~~~~ {.bash}
+$ GHUN=b42214 # GitHub UserName you have used
+~~~~
+
+
 ~~~~ {.bash}
 $ git remote add origin https://github.com/$GHUN/$PN.git
 # Creates a remote named "origin" pointing at your GitHub repository
@@ -174,130 +176,11 @@ $ git remote -v
 
 $ git push origin master
 # Sends your commits in the "master" branch to GitHub
+# Verify your commits are now in GitHub visiting the repo's page
 ~~~~
 
 
-# Collaborating with Remotes
-
-* Developer
-
-~~~~ {.bash}
-# Add some text on the README file and commit your change
-$ git push origin master
-~~~~
-
-* Mantainer
-
-~~~~ {.bash}
-$ PN=demo
-$ GHDEVELOPER= # Set Github ID of Developer
-$ git remote -v
-$ git remote add $GHDEVELOPER https://github.com/$GHDEVELOPER/$PN.git
-$ git remote -v
-$ git fetch $GHDEVELOPER
-$ git branch # Check current branch
-$ git merge $GHDEVELOPER/master
-$ # The file(s) changed by User 1 should be present now
-$ git show HEAD # or simply 'git show'
-~~~~
-
-# Collaborating with patches
-
-* Developer
-
-~~~~ {.bash}
-$ MANTAINER_EMAIL=maintainer@email.com
-# Change something on helloworld.c and commit your change
-$ git format-patch -s --subject-prefix='PATCH' -1
-$ git send-email --to $MANTAINER_EMAIL <generated patch>
-~~~~
-
-* Mantainer
-
-~~~~ {.bash}
-# Download patch
-$ git apply --stat <generated patch>
-$ git apply --check <generated patch>
-$ git am --signoff < <generated patch> # In case you dont want to create a commit
-                                       # type 'git apply <generate patch>' 
-$ git show
-~~~~
-
-# Tags
-
-* Listing
-
-~~~~ {.bash}
-$ git tag
-~~~~
-
-* Annotated tags (heavyweight tags)
-
-~~~~ {.bash}
-$ git tag -a v1.0 -m 'my 1.0 alpha version'
-$ git tag
-$ git show v1.0
-~~~~
-
-* Lightweight Tags
-
-~~~~ {.bash}
-$ echo '{{ Hello }}' >> README
-$ git commit -a -m 'New line on README' # -a indicates to add all modified files!
-$ git tag v1.1-lw
-$ git tag
-$ git show v1.1-lw
-~~~~
-
-* Tagging older commits
-
-~~~~ {.bash}
-$ git log --pretty=oneline
-$ git tag -a v0.1 -m 'my 0.1 alpha version' <place the commit ID you want to tag>
-$ git show v0.1
-~~~~
-
-* Sharing tags
-
-~~~~ {.bash}
-$ git push origin v1.0
-~~~~
-
-~~~~ {.bash}
-$ git push origin --tags
-~~~~
-
-
-# Tips and tricks
-
-* Autocompletion
-
-~~~~ {.bash}
-$ curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash > ~/git-completion.bash
-$ source ~/git-completion.bash
-$ git che<TAB>
-checkout      cherry        cherry-pick   
-~~~~~
-
-
-* Alias
-
-~~~~ {.bash}
-$ git config --global alias.unstage 'reset HEAD --'
-$ git unstage README # instead of 'git reset HEAD REAME'
-~~~~
-
-~~~~ {.bash}
-$ git config --global alias.co checkout
-$ git config --global alias.br branch
-$ git config --global alias.ci commit
-$ git config --global alias.st status
-~~~~
-
-~~~~ {.bash}
-$ git config --global alias.last 'log -1 HEAD'
-$ git last
-~~~~
+# End
 
 [Back to Menu](./menu.html#(2))
 
