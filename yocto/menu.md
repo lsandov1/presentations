@@ -8,4 +8,5 @@
 * [Folders](./folders.html)
 * [Architecture](./arch.html)
 * [Metadata/inputs](./meta_input.html)
-* [Common Development tasks](./development.html)
+* Common Development tasks
+    * [Creating a new layer](common_tasks/layer.html)

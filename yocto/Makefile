@@ -1,5 +1,5 @@
-SOURCES=menu.md folders.md 8steps.md arch.md meta_input.md development.md
-DEST=menu.html folders.html 8steps.html arch.html meta_input.html development.html
+SOURCES=menu.md folders.md 8steps.md arch.md meta_input.md
+DEST=menu.html folders.html 8steps.html arch.html meta_input.html
 
 all: $(DEST)
 
@@ -16,9 +16,6 @@ arch.html: arch.md
 		pandoc --offline -s -t slidy -o $@ $<
 
 meta_input.html: meta_input.md
-		pandoc --offline -s -t slidy -o $@ $<
-
-development.html: development.md
 		pandoc --offline -s -t slidy -o $@ $<
 
 clean:
