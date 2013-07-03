@@ -8,5 +8,5 @@
 * [Branching](./branching.html)
 * [Collaboration](./collaboration.html)
 * [Tags](./tags.html)
-* [Tips and Tricks](./tip_tricks.html)
+* [Tips and Tricks](./tips_tricks.html)
 

@@ -1,17 +1,17 @@
-SOURCES=menu.md diff_patch.md
-DEST=menu.html diff_patch.html# git
+SOURCES=menu.md
+DEST=menu.html #bash git
 
 all: $(DEST)
 
 menu.html: menu.md
 		pandoc --offline -s -t slidy -o $@ $<
 
-diff_patch.html: diff_patch.md
-		pandoc --offline -s -t slidy -o $@ $<
+#bash:
+#		@(cd bash; $(MAKE))
 
 #git:
-#		(cd git; make)
+#		@(cd git; $(MAKE))
 
 clean:
 		-rm -f *.html
-		(cd git; make clean)
+
