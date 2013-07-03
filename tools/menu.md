@@ -1,10 +1,10 @@
-% Linux Development Shell Tools
+% Linux Tools
 % Leonardo Sandoval
-% 2013
+% 
 
 # Menu
 
-* [Bash](./bash/menu.html)
+* [Bash](./bash/menu.html#(2))
     * [Basics](./bash/basics.html)
     * [Standard Output](./bash/stdout.html)
     * [Standard Input](./bash/stdin.html)
@@ -12,7 +12,7 @@
     * [Scripting](./bash/scripting.html)
     * [Tools](./bash/tools.html)
 
-* [Git](./git/menu.html)
+* [Git](./git/menu.html#(2))
     * [Basics](./git/basics.html)
     * [Branching](./git/branching.html)
     * [Collaboration](./git/collaboration.html)
