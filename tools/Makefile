@@ -1,17 +1,18 @@
 SOURCES=menu.md
-DEST=menu.html #bash git
+DEST=menu.html
+SUBDIRS = bash git
 
-all: $(DEST)
+all: $(DEST) $(SUBDIRS)
 
 menu.html: menu.md
 		pandoc --offline -s -t slidy -o $@ $<
 
-#bash:
-#		@(cd bash; $(MAKE))
-
-#git:
-#		@(cd git; $(MAKE))
+.PHONY: subdirs $(SUBDIRS)
+     
+subdirs: $(SUBDIRS)
+     
+$(SUBDIRS):
+		$(MAKE) -C $@
 
 clean:
 		-rm -f *.html
-
