@@ -19,7 +19,7 @@ To download Metadata, check step 3 of the [8 Steps document](./8steps.html)
 
 Configuration Data:
 
-* `build/conf/local.conf`: Local User Configuration for your build enviroment
+* `build/conf/local.conf`: Local User Configuration for your build environment
 * `build/conf/bblayers.conf`: Define layers, which are directory trees, traversed by BitBake.
 * `sources/meta-*/conf/layer.conf`: Layer configuration file
 * `sources/meta-*/conf/machine/*.conf`: Machine configuration files
@@ -62,7 +62,7 @@ Important variables:
 
 # Layer selection file: `build/conf/bblayers.conf`
 
-* Automatically created by the `setup-enviroment` script (step 4 on the [8 Steps](./8steps.html) document).
+* Automatically created by the `setup-environment` script (step 4 on the [8 Steps](./8steps.html) document).
 
 * Only modified when adding a new layer (check [Common Development Tasks](./development.html) file for more info)
 

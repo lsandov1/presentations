@@ -21,7 +21,7 @@ $ repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b dylan
 $ repo sync
 ~~~~
 
-4. Prepare the bitbake's enviroment
+4. Prepare the bitbake's environment
 
 ~~~~ {.bash}
 $ . ./setup-environment build
