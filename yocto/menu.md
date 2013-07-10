@@ -10,3 +10,4 @@
 * [Metadata/inputs](./meta_input.html)
 * Common Development tasks
     * [Creating a new layer](common_tasks/layer.html)
+    * [Patching the Kernel](common_tasks/patching_kernel.html)
