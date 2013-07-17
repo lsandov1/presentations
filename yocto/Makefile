@@ -1,5 +1,5 @@
-SOURCES=menu.md folders.md 8steps.md arch.md meta_input.md
-DEST=menu.html folders.html 8steps.html arch.html meta_input.html
+SOURCES=menu.md folders.md Nsteps.md arch.md meta_input.md
+DEST=menu.html folders.html Nsteps.html arch.html meta_input.html
 SUBDIRS = common_tasks
 
 all: $(DEST) $(SUBDIRS)
@@ -10,7 +10,7 @@ menu.html: menu.md
 folders.html: folders.md
 		pandoc --offline -s -t slidy -o $@ $<
 
-8steps.html: 8steps.md
+Nsteps.html: Nsteps.md
 		pandoc --offline -s -t slidy -o $@ $<
 
 arch.html: arch.md
