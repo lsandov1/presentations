@@ -10,7 +10,7 @@ BitBake handles the parsing and execution of the data files. The data itself is 
 * Class Data: Abstracts common build information (e.g. how to build a Linux kernel).
 * Configuration Data: Defines machine-specific settings, policy decisions, and so forth. Configuration data acts as the glue to bind everything together.
 
-To download Metadata, check step 3 of the [8 Steps document](./8steps.html)
+To download Metadata, check step 3 of the [8 Steps document](./Nsteps.html)
 
 
 # User and Machine (BSP) Configuration
@@ -62,7 +62,7 @@ Important variables:
 
 # Layer selection file: `build/conf/bblayers.conf`
 
-* Automatically created by the `setup-environment` script (step 4 on the [8 Steps](./8steps.html) document).
+* Automatically created by the `setup-environment` script (step 4 on the [8 Steps](./Nsteps.html) document).
 
 * Only modified when adding a new layer (check [Common Development Tasks](./development.html) file for more info)
 
