@@ -4,7 +4,7 @@ It is suggested to create a layer when creating or modifying any metadata file (
 configuration file or class). The main reason is simple: modularity. Follow  these
 steps
 
-1. To have access to yocto scripts, setup the enviroment from the BASE folder
+1. To have access to Yocto scripts, setup the enviroment from the BASE folder
 
 ~~~~{.bash}
 fsl-community-bsp $ . setup-environment build
