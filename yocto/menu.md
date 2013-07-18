@@ -12,3 +12,4 @@
     * [Creating a new layer](common_tasks/layer.html)
     * [Patching the Kernel](common_tasks/patching_kernel.html)
     * [Building the Kernel with make](common_tasks/building_kernel.html)
+    * [Contribute to the Freescale Yocto Project](common_tasks/contribute.html)
