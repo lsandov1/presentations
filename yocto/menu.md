@@ -1,4 +1,4 @@
-% Introduction to Freescale Community Yocto Project
+% Freescale Yocto Project Tutorial
 % Leonardo Sandoval
 % 2013
 
