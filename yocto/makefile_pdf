@@ -1,10 +1,10 @@
-SOURCES=menu.md folders.md Nsteps.md arch.md meta_input.md
-DEST=menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf
+SOURCES=menu.pdf.md folders.md Nsteps.md arch.md meta_input.md
+DEST=menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf yocto_tutorial.pdf
 SUBDIRS = common_tasks
 
 all: $(DEST) $(SUBDIRS)
 
-menu.pdf: menu.md
+menu.pdf: menu.pdf.md
 		pandoc --offline -s -o $@ $<
 
 folders.pdf: folders.md
@@ -19,13 +19,15 @@ arch.pdf: arch.md
 meta_input.pdf: meta_input.md
 		pandoc --offline -s -o $@ $<
 
+yocto_tutorial.pdf:
+		gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$@ menu.pdf Nsteps.pdf folders.pdf arch.pdf meta_input.pdf common_tasks/layer.pdf common_tasks/patching_kernel.pdf common_tasks/building_kernel.pdf common_tasks/contribute.pdf
 
 .PHONY: subdirs $(SUBDIRS)
      
 subdirs: $(SUBDIRS)
      
 $(SUBDIRS):
-		$(MAKE) -C $@
+		$(MAKE) -f makefile_pdf -C $@
 
 clean:
 		-rm -f *.pdf
