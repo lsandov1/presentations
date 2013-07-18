@@ -1,0 +1,19 @@
+SOURCES=layer.md patching_kernel.md building_kernel.md contribute.mb
+DEST=layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf
+
+all: $(DEST)
+
+layer.pdf: layer.md
+		pandoc --offline -s -o $@ $<
+
+patching_kernel.pdf: patching_kernel.md
+		pandoc --offline -s -o $@ $<
+
+building_kernel.pdf: building_kernel.md
+		pandoc --offline -s -o $@ $<
+
+contribute.pdf: contribute.md
+		pandoc --offline -s -o $@ $<
+
+clean:
+		-rm -f *.pdf

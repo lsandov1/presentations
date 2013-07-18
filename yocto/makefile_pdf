@@ -1,0 +1,31 @@
+SOURCES=menu.md folders.md Nsteps.md arch.md meta_input.md
+DEST=menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf
+SUBDIRS = common_tasks
+
+all: $(DEST) $(SUBDIRS)
+
+menu.pdf: menu.md
+		pandoc --offline -s -o $@ $<
+
+folders.pdf: folders.md
+		pandoc --offline -s -o $@ $<
+
+Nsteps.pdf: Nsteps.md
+		pandoc --offline -s -o $@ $<
+
+arch.pdf: arch.md
+		pandoc --offline -s -o $@ $<
+
+meta_input.pdf: meta_input.md
+		pandoc --offline -s -o $@ $<
+
+
+.PHONY: subdirs $(SUBDIRS)
+     
+subdirs: $(SUBDIRS)
+     
+$(SUBDIRS):
+		$(MAKE) -C $@
+
+clean:
+		-rm -f *.pdf
