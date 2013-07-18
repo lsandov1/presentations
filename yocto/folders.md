@@ -13,5 +13,3 @@
 * **BASE/build/tmp/deploy**: Deploy (DEPLOY) directory where bitbake's output data is found
 
 * **BASE/build/tmp/deploy/images**: Complete and partial images are found under this folder
-
-[Back to Menu](./menu.html#(2))

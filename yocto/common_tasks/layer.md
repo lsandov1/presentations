@@ -31,5 +31,3 @@ BUILD folder
 ~~~~{.bash}
 build $ bitbake-layers show-layers
 ~~~~
-
-[Back to Menu](../menu.html#(2))

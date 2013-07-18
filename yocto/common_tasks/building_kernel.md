@@ -65,7 +65,4 @@ linux-imx $ make uImage
 linux-imx $ sudo cp arch/arm/boot/uImage /media/boot
 ~~~~
 
-10. If case you want your changes to be reflected on your Yocto Framework, create the patches following [this](./patching_kernel.html) page.
-
-
-[Back to Menu](../menu.html#(2))
+10. If case you want your changes to be reflected on your Yocto Framework, create the patches following the section 'Patching the kernel'.

@@ -3,8 +3,7 @@
 The Linux Kernel is just another recipe for Yocto, so learning to patch it you learn
 to patch any other package. In the other hand, Yocto **should not** be used for 
 package development, but in those rare cases follow the below steps. It is assumed
-that you have already build the package you want to patch. If this is not the case
-please follow the [starting](../Nsteps.html) document.
+that you have already build the package you want to patch. 
 
 1. Create the patch or patches. In this example we are patching the
 Linux kernel for [wandboard-dual](http://www.wandboard.org/) machine; in other
@@ -20,7 +19,7 @@ build $ git commit -s -m '<your commit's title>'		# Create the commit
 build $ git format-patch -1								# Create the patch
 ~~~~
 
-2. Create a new layer following the slide [Creating a new Layer](./layer.html)
+2. Create a new layer (see section 'Creating a new Layer')
 
 3. On the new layer (e.g `meta-fsl-custom`) , create the corresponding subfolders and the `.bbfile`
 
@@ -64,6 +63,3 @@ build $ sudo cp tmp/deploy/images/uImage /media/Boot\ wandbo/
 ~~~~
 
 8. Insert the SD into your board and test your change. 
-
-
-[Back to Menu](../menu.html#(2))

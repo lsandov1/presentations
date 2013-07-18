@@ -55,5 +55,3 @@ build $ sudo dd if=tmp/deploy/images/<selected image>-<select machine>.sdcard of
 7. Place your SD Card in the correct board's slot and boot!
 
 Found Errors? Subscribe and report it to [meta-freescale](https://lists.yoctoproject.org/listinfo/meta-freescale) list
-
-[Back to Menu](./menu.html#(2))

@@ -1,7 +1,5 @@
 # Metadata/input
 
-![](http://www.yoctoproject.org/docs/current/yocto-project-qs/figures/yocto-environment.png)
-
 # Metadata
 
 BitBake handles the parsing and execution of the data files. The data itself is of various types:
@@ -10,12 +8,8 @@ BitBake handles the parsing and execution of the data files. The data itself is 
 * Class Data: Abstracts common build information (e.g. how to build a Linux kernel).
 * Configuration Data: Defines machine-specific settings, policy decisions, and so forth. Configuration data acts as the glue to bind everything together.
 
-To download Metadata, check step 3 of the [8 Steps document](./Nsteps.html)
-
 
 # User and Machine (BSP) Configuration
-
-![](https://www.yoctoproject.org/docs/current/yocto-project-qs/figures/yocto-environment.png)
 
 Configuration Data:
 
@@ -62,9 +56,9 @@ Important variables:
 
 # Layer selection file: `build/conf/bblayers.conf`
 
-* Automatically created by the `setup-environment` script (step 4 on the [8 Steps](./Nsteps.html) document).
+* Automatically created by the `setup-environment` script (see section 'Build & Boot your FSL Yocto Image in N Steps')
 
-* Only modified when adding a new layer (check [Common Development Tasks](./development.html) file for more info)
+* Only modified when adding a new layer
 
 ~~~~{.python}
 LCONF_VERSION = "6"
@@ -146,5 +140,3 @@ Important variables:
 * `SOC_FAMILY`: Defines machine's family. Only recipes with the same `SOC_FAMILY` (defined with the
 recipe's variable `COMPATIBLE_MACHINE`) are taken into account when baking for a particular machine.
 * `UBOOT_MACHINE`: Define the u-boot configuration file
-
-[Back to Menu](./menu.html#(2))

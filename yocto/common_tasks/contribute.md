@@ -82,5 +82,3 @@ repeat the steps but this time the patch's subject changes to `--subject-prefix=
 ~~~~{.bash}
 fsl-community-bsp $ repo abandon <branch name>
 ~~~~
-
-[Back to Menu](../menu.html#(2))
