@@ -24,7 +24,7 @@ meta_input.html: meta_input.md
 subdirs: $(SUBDIRS)
      
 $(SUBDIRS):
-		$(MAKE) -C $@
+		$(MAKE) -f makefile_html -C $@
 
 clean:
 		-rm -f *.html

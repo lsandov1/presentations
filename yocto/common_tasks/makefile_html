@@ -14,3 +14,6 @@ building_kernel.html: building_kernel.md
 
 contribute.html: contribute.md
 		pandoc --offline -s -t slidy -o $@ $<
+
+clean:
+		-rm -f *.html
