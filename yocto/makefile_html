@@ -1,8 +1,7 @@
-SOURCES=menu.md folders.md Nsteps.md arch.md meta_input.md
-DEST=menu.html folders.html Nsteps.html arch.html meta_input.html
-SUBDIRS = common_tasks
+SOURCES=menu.md folders.md Nsteps.md arch.md meta_input.md layer.md patching_kernel.md building_kernel.md contribute.mb
+DEST=menu.html folders.html Nsteps.html arch.html meta_input.html layer.html patching_kernel.html building_kernel.html contribute.html
 
-all: $(DEST) $(SUBDIRS)
+all: $(DEST)
 
 menu.html: menu.md
 		pandoc --offline -s -t slidy -o $@ $<
@@ -19,12 +18,17 @@ arch.html: arch.md
 meta_input.html: meta_input.md
 		pandoc --offline -s -t slidy -o $@ $<
 
-.PHONY: subdirs $(SUBDIRS)
-     
-subdirs: $(SUBDIRS)
-     
-$(SUBDIRS):
-		$(MAKE) -f makefile_html -C $@
+layer.html: layer.md
+		pandoc --offline -s -t slidy -o $@ $<
+
+patching_kernel.html: patching_kernel.md
+		pandoc --offline -s -t slidy -o $@ $<
+
+building_kernel.html: building_kernel.md
+		pandoc --offline -s -t slidy -o $@ $<
+
+contribute.html: contribute.md
+		pandoc --offline -s -t slidy -o $@ $<
 
 clean:
 		-rm -f *.html
