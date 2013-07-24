@@ -30,8 +30,8 @@ building_kernel.pdf: building_kernel.md
 contribute.pdf: contribute.md
 		pandoc --offline -s -o $@ $<
 
-yocto_tutorial.pdf:
-		gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$@ menu.pdf Nsteps.pdf folders.pdf arch.pdf meta_input.pdf common_tasks/layer.pdf common_tasks/patching_kernel.pdf common_tasks/building_kernel.pdf common_tasks/contribute.pdf
+yocto_tutorial.pdf: menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf yocto_tutorial.pdf layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf 
+		gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$@ menu.pdf Nsteps.pdf folders.pdf arch.pdf meta_input.pdf layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf
 
 clean:
 		-rm -f *.pdf

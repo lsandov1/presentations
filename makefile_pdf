@@ -1,0 +1,10 @@
+SUBDIRS = yocto
+
+all: $(SUBDIRS)
+
+.PHONY: subdirs $(SUBDIRS)
+     
+subdirs: $(SUBDIRS)
+     
+$(SUBDIRS):
+		$(MAKE) -f makefile_pdf -C $@

@@ -12,7 +12,7 @@ menu.html: menu.md
 subdirs: $(SUBDIRS)
      
 $(SUBDIRS):
-		$(MAKE) -C $@
+		$(MAKE) -f makefile_html -C $@
 
 clean:
 		-rm -f *.html
