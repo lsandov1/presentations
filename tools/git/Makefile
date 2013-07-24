@@ -4,22 +4,22 @@ DEST=menu.html basics.html branching.html collaboration.html tags.html tips_tric
 all: $(DEST)
 
 menu.html: menu.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 basics.html: basics.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 branching.html: branching.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 collaboration.html: collaboration.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 		
 tags.html: tags.md
-		pandoc --offline -s -t slidy -o $@ $<		
+		pandoc --self-contained -s -t slidy -o $@ $<		
 
 tips_tricks.html: tips_tricks.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 clean:
 		-rm -f *.html

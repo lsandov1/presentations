@@ -4,31 +4,31 @@ DEST=menu.html folders.html Nsteps.html arch.html meta_input.html layer.html pat
 all: $(DEST)
 
 menu.html: menu.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 folders.html: folders.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 Nsteps.html: Nsteps.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 arch.html: arch.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 meta_input.html: meta_input.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 layer.html: layer.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 patching_kernel.html: patching_kernel.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 building_kernel.html: building_kernel.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 contribute.html: contribute.md
-		pandoc --offline -s -t slidy -o $@ $<
+		pandoc --self-contained -s -t slidy -o $@ $<
 
 clean:
 		-rm -f *.html

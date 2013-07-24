@@ -4,33 +4,33 @@ DEST=menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf yocto_tutorial.pdf 
 all: $(DEST)
 
 menu.pdf: menu.pdf.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 folders.pdf: folders.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 Nsteps.pdf: Nsteps.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 arch.pdf: arch.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 meta_input.pdf: meta_input.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 layer.pdf: layer.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 patching_kernel.pdf: patching_kernel.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 building_kernel.pdf: building_kernel.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
 contribute.pdf: contribute.md
-		pandoc --offline -s -o $@ $<
+		pandoc --self-contained -s -o $@ $<
 
-yocto_tutorial.pdf: menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf yocto_tutorial.pdf layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf 
+yocto_tutorial.pdf: menu.pdf folders.pdf Nsteps.pdf arch.pdf meta_input.pdf layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf 
 		gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$@ menu.pdf Nsteps.pdf folders.pdf arch.pdf meta_input.pdf layer.pdf patching_kernel.pdf building_kernel.pdf contribute.pdf
 
 clean:
