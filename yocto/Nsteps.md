@@ -2,8 +2,8 @@
 
 * Check [required](http://www.yoctoproject.org/docs/1.4/ref-manual/ref-manual.html#required-packages-for-the-host-development-system) packages for your Linux Distribution and install them
 
-* Install the [repo](http://source.android.com/source/developing.html) utility following
-these steps
+* Install the [repo](http://source.android.com/source/developing.html) utility 
+following these steps
 
 ~~~~ {.bash}
 $ mkdir ~/bin
@@ -17,7 +17,9 @@ $ PATH=${PATH}:~/bin
 ~~~~ {.bash}
 $ mkdir fsl-community-bsp
 $ cd fsl-community-bsp
-fsl-community-bsp $ repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b dylan
+fsl-community-bsp $ repo init \
+                        -u https://github.com/Freescale/fsl-community-bsp-platform \
+                        -b dylan
 fsl-community-bsp $ repo sync # Takes some minutes the first time 
 ~~~~
 
@@ -34,8 +36,9 @@ build $
 * Choose an image and bake it!
 
 ~~~~ {.bash}
-build $ bitbake-layers show-recipes | grep image 	# To list all possible images
-build $ bitbake <selected image>					# Bake! The first time can take several hours.
+build $ bitbake-layers show-recipes | grep image   	# To list all possible images
+build $ bitbake <selected image>		   			# Bake! The first time can 
+													# take several hours.
 # e.g bitbake core-image-minimal
 ~~~~
 
@@ -49,7 +52,11 @@ build $ bitbake <selected image>					# Bake! The first time can take several hou
 build $ ls -la 'tmp/deploy/images/*.sdcard'
 
 # Flash the soft link one
-build $ sudo dd if=tmp/deploy/images/<selected image>-<select machine>.sdcard of=/dev/sdX bs=1M
+build $ sudo dd \
+			if=tmp/deploy/images/<selected image>-<select machine>.sdcard \
+			of=/dev/sdX \
+			bs=1M
+build $ sync				
 ~~~~
 
 * Place your SD Card in the correct board's slot and boot!

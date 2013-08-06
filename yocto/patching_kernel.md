@@ -14,7 +14,8 @@ this step
 ~~~~{.bash}
 build $ cd tmp/work/wandboard_dual-poky-linux-gnueabi/linux-wandboard/3.0.35-r0/git
 build $ # Edit any files you want to change
-build $ git add <modified file 1> <modified file 2> .. 	# Select the files you want to commit
+build $ git add <modified file 1> <modified file 2> .. 	# Select the files you 
+														# want to commit
 build $ git commit -s -m '<your commit's title>'		# Create the commit
 build $ git format-patch -1								# Create the patch
 ~~~~
@@ -24,7 +25,8 @@ build $ git format-patch -1								# Create the patch
 * On the new layer (e.g `meta-fsl-custom`) , create the corresponding subfolders and the `.bbfile`
 
 ~~~~ {.bash}
-sources $ mkdir -p meta-fsl-custom/recipes-kernel/linux/linux-wandboard-3.0.35/
+sources $ mkdir -p \
+			meta-fsl-custom/recipes-kernel/linux/linux-wandboard-3.0.35/
 sources $ cat > meta-fsl-custom/recipes-kernel/linux/linux-wandboard_3.0.35.bbappend
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 SRC_URI += "file://0001-calibrate-Add-printk-example.patch"
@@ -34,12 +36,13 @@ PRINC := "${@int(PRINC) + 1}"
 
 * Move the patch to the new layer
 
+
 ~~~~{.bash}
 sources $ cp \
-../build/tmp/work/wandboard_dual-poky-linux-gnueabi/linux-wandboard/3.0.35-r0/git/0001-calibrate-Add-printk-example.patch \
-meta-fsl-custom/recipes-kernel/linux/linux-wandboard-3.0.35
+../build/tmp/work/wandboard_dual-poky-linux-gnueabi/linux-wandboard/3.0.35-r0/\
+	git/0001-calibrate-Add-printk-example.patch \
+	meta-fsl-custom/recipes-kernel/linux/linux-wandboard-3.0.35
 ~~~~
-
 
 * Setup the enviroment and clean previous package's build data (sstate)
 
