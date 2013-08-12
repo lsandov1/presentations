@@ -1,5 +1,3 @@
-# Metadata/input
-
 # Metadata
 
 BitBake handles the parsing and execution of the data files. The data itself is of various types:
@@ -8,10 +6,15 @@ BitBake handles the parsing and execution of the data files. The data itself is 
 * Class Data: Abstracts common build information (e.g. how to build a Linux kernel).
 * Configuration Data: Defines machine-specific settings, policy decisions, and so forth. Configuration data acts as the glue to bind everything together.
 
+# Layers
 
-# User and Machine (BSP) Configuration
+* Metadata is organized into multiple `layers`.
+* Layers allow you to isolate different types of customizations from each other.
+* DO NOT do your modifications in existing layers, instead create a layer and
+create recipes (.bb files) or modified existing ones (.bbappend files)
 
-Configuration Data:
+
+# Configuration Data
 
 * `build/conf/local.conf`: Local User Configuration for your build environment
 * `build/conf/bblayers.conf`: Define layers, which are directory trees, traversed by BitBake.
@@ -19,7 +22,7 @@ Configuration Data:
 * `sources/meta-*/conf/machine/*.conf`: Machine configuration files
 
 
-# User Configuration file: `build/conf/local.conf`
+# Build's local configuration file `build/conf/local.conf`
 
 ~~~~{.python}
 MACHINE ??= 'wandboard-dual'
@@ -54,7 +57,7 @@ Important variables:
 * `BB_NUMBER_THREADS` and `PARALLEL_MAKE`: Indicate the max number of threads when baking and compiling
 * `DL_DIR`: Tarball repository. Several users can share the same folder, so data can be reused.
 
-# Layer selection file: `build/conf/bblayers.conf`
+# Build's layer configuration file `build/conf/bblayers.conf`
 
 * Automatically created by the `setup-environment` script (see section 'Build & Boot your FSL Yocto Image in N Steps')
 
@@ -79,7 +82,7 @@ BBLAYERS = " \
 "
 ~~~~
 
-# Layer configuration file: `meta-fsl-arm/conf/layer.conf`
+# Layer configuration file `meta-fsl-arm/conf/layer.conf`
 
 ~~~~{.python}
 # We have a conf and classes directory, add to BBPATH

@@ -1,8 +1,11 @@
 # Creating a new  Layer
 
 It is suggested to create a layer when creating or modifying any metadata file (recipe,
-configuration file or class). The main reason is simple: modularity. Follow  these
-steps
+configuration file or class). The main reason is simple: modularity. In the other hand,
+make sure your new metadata has not already be implemented (layer, recipe or machine), so
+before proceeding check [this](http://layers.openembedded.org/layerindex/layers/)
+link.
+
 
 * To have access to Yocto scripts, setup the enviroment from the BASE folder
 
