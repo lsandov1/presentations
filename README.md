@@ -1,18 +1,14 @@
 Tutorials
 =========
 
-Make sure you have [pandoc](http://johnmacfarlane.net/pandoc/) application. To create HTML slides, type:
+Make sure you have [pandoc](http://johnmacfarlane.net/pandoc/) application (tested on Pandoc 1.9.1.1).  To create HTML and PDF files, just type `make`. Output:
 
 ~~~~{.bash}
-$ make -f makefile_html
+$ find | grep .html
+$ find | grep .pdf
 ~~~~
 
-The Yocto tutorial is delivered either with slides (created running the above command) or as a single
-PDF file. To create the PDF file, type:
-
-
-~~~~{.bash}
-$ make -f makefile_pdf
-~~~~
-
-The PDF file is located on yocto/yocto_tutorial.pdf
+TODO:
++ Create a general html index
++ 'clean' recursively
++ Place the output inside a unique folder (i.e. output)
