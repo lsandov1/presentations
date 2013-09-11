@@ -114,7 +114,7 @@ $ git commit
 # 
 ~~~~
 
-![](https://wiki.openstack.org/wiki/GitCommitMessages)
+![](http://wiki.openstack.org/wiki/GitCommitMessages)
 
 
 # Commit history
