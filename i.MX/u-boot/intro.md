@@ -123,12 +123,16 @@ The entry point on `arch/arm/cpu/armv7/start.S` is `_start`. The execution path 
     + Provides stack and and a place to store the GD ('global data') structure
 
 1. `arch/arm/lib/board.c: board_init_f`
-    + Prepares the hardware for the execution from system RAN (DRAM, DDR)
+    + The string '_f' at the end of function name implies that code is being is 
+    executed from Flash (or any storage media, i.e. SD Card)
+    + Prepares the hardware for the execution from system's RAM (DRAM, DDR)
     + It uses GD to store any data which is used on later stages: relocation
     destination, the future stack and the future GD location
     + Check `include/asm-generic/global_data.h` for `typedec struct global_data { } gd_t;`
 
 1. `arch/arm/lib/board.c: board_init_r`
+    + The string '_r' at the end of function name implies that code is being executed from
+    RAM
     + Running on RAM and a "normal" environment: Global data, stack size is not critical, etc.
     + Enable Caches, chip Selection, console initialization
 
