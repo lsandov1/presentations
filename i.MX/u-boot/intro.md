@@ -129,6 +129,7 @@ The entry point on `arch/arm/cpu/armv7/start.S` is `_start`. The execution path 
     + It uses GD to store any data which is used on later stages: relocation
     destination, the future stack and the future GD location
     + Check `include/asm-generic/global_data.h` for `typedec struct global_data { } gd_t;`
+    + More detail on next section
 
 1. `arch/arm/lib/board.c: board_init_r`
     + The string '_r' at the end of function name implies that code is being executed from
@@ -141,6 +142,30 @@ The entry point on `arch/arm/cpu/armv7/start.S` is `_start`. The execution path 
 
 1. `arch/arm/lib/bootm.c: boot_jump_linux`
     + Jump to Kernel entry point
+
+
+# Initialization function: `board_init_f`
+
+* Important entry points:
+
+1. `arch/arm/cpu/armv7/mx6/soc.c: arch_cpu_init`
+    + Sets VDDSOC to 1.2V
+    + Power down wdog, PCIE and VDDPU
+1. `board/freescale/mx6qsabresd/mx6qsabresd.c: board_early_init_f`
+    + Setp UART, SPINOR and SATA
+1. `arch/arm/lib/board.c: init_baudrate`
+    + Sets the baudrate (115200)
+1. `drivers/serial/serial.c: serial_init`
+1. `common/console.c: console_init_f`
+1. `arch/arm/imx-common/cpu.c: print_cpuinfo`
+1. `arch/arm/lib/board.c: init_func_i2c`
+1. `board/freescale/mx6qsabresd/mx6qsabresd.c: dram_init`
+    + Sets the RAM's size
+
+* The Global Data structure (defined on `include/asm-generic/global_data`) is filled 
+during `board_init_f` execution. This information is used along the execution path.
+
+* At the end of the function, the function copies U-boot into RAM, and execution is now on RAM.
 
 
 # Memory map: `u-boot.map`
