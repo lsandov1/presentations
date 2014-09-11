@@ -1,4 +1,4 @@
-SUBDIRS=yocto u-boot
+SUBDIRS=yocto u-boot linux
 
 all: $(DEST) $(SUBDIRS)
 
